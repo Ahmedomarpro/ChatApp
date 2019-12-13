@@ -8,7 +8,7 @@ public class User {
 	private String status;
 	private String search;
 
-	public  User(String id, String username, String imageURL, String status, String search) {
+	public User(String id, String username, String imageURL, String status, String search) {
 		this.id = id;
 		this.username = username;
 		this.imageURL = imageURL;

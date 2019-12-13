@@ -86,6 +86,8 @@ public class RegisterActivity extends AppCompatActivity {
 							hashMap.put("id", userid);
 							hashMap.put("username", username);
 							hashMap.put("imageURL", "Default");
+							hashMap.put("status", "offline");
+							hashMap.put("search", username.toLowerCase());
 
 							reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
 								@Override
@@ -101,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
 										 */
 										finish();
 									} else {
-										Toast.makeText(RegisterActivity.this, "You can't register woth this email or password", Toast.LENGTH_SHORT).show();
+			Toast.makeText(RegisterActivity.this, "You can't register woth this email or password", Toast.LENGTH_SHORT).show();
 									}
 
 								}

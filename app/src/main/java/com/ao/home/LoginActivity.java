@@ -43,19 +43,26 @@ public class LoginActivity extends AppCompatActivity {
 		password = findViewById(R.id.password);
 		btn_login = findViewById(R.id.btn_login);
 
-		//forgot_password = findViewById(R.id.forgot_password);
+		forgot_password = findViewById(R.id.forgot_password);
+		forgot_password.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LoginActivity.this,ResetPasswordActivity.class));
+				
+			}
+		});
 
 		btn_login.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				String txt_email = email.getText().toString();
-				String txt_pass = password.getText().toString();
+				String txt_password = password.getText().toString();
 
-				if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_pass)) {
+				if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
 					Toast.makeText(LoginActivity.this, "All fileds are required",
 							Toast.LENGTH_SHORT).show();
 				} else {
-	auth.signInWithEmailAndPassword(txt_email, txt_pass)
+	auth.signInWithEmailAndPassword(txt_email, txt_password)
 			.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 				@Override
 				public void onComplete(@NonNull Task<AuthResult> task) {

@@ -15,7 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.ao.home.MessageActivity"></activity>
+        <activity android:name="com.ao.home.ResetPasswordActivity"
+            android:parentActivityName="com.ao.home.LoginActivity"
+            />
+        <activity android:name="com.ao.home.MessageActivity"
+            android:parentActivityName="com.ao.home.MainActivity"
+
+            />
         <activity
             android:name="com.ao.home.LoginActivity"
             android:parentActivityName="com.ao.home.StartActivity" />
@@ -30,6 +36,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <service android:name="com.ao.home.Notifications.MyFirebaseIdService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service android:name="com.ao.home.Notifications.MyFirebaseMessaging"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+
     </application>
 
 </manifest>
