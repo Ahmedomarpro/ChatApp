@@ -12,7 +12,7 @@ public class Client {
 	private static Retrofit retrofit;
 
 	public static Retrofit getRetrofit(String url) {
-		if (retrofit == null){
+		if (retrofit == null) {
 			retrofit = new Retrofit
 					.Builder()
 					.baseUrl(url)
@@ -21,6 +21,6 @@ public class Client {
 		}
 
 
-			return retrofit;
+		return retrofit;
 	}
 }

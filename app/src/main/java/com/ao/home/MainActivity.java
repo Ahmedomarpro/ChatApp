@@ -15,13 +15,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.ao.chatApp.R;
 import com.ao.home.fragments.ChatFragment;
 import com.ao.home.fragments.ProfileFragment;
 import com.ao.home.fragments.UsersFragment;
 import com.ao.home.model.Chat;
 import com.ao.home.model.User;
-import com.ao.pushnotification.R;
-import com.bumptech.glide.Glide;
+ import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 	FirebaseUser firebaseUser;
 	DatabaseReference reference;
 
-   	@Override
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
 		profile_image = findViewById(R.id.profile_image);
 		username = findViewById(R.id.username);
-
-
 
 
 		firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -100,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 		reference.addValueEventListener(new ValueEventListener() {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-				ViewPagerAdapter 	viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+				ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 				int unread = 0;
 				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 					Chat chat = snapshot.getValue(Chat.class);
@@ -130,8 +128,6 @@ public class MainActivity extends AppCompatActivity {
 
 			}
 		});
-
-
 
 
 	}
@@ -213,5 +209,5 @@ public class MainActivity extends AppCompatActivity {
 
 	}
 
-	
+
 }

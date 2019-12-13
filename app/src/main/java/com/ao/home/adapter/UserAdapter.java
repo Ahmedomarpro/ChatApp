@@ -12,10 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.ao.chatApp.R;
 import com.ao.home.MessageActivity;
 import com.ao.home.model.Chat;
 import com.ao.home.model.User;
-import com.ao.pushnotification.R;
+
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

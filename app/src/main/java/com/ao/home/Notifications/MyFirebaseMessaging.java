@@ -24,7 +24,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 	@Override
 	public void onMessageReceived(RemoteMessage remoteMessage) {
 		super.onMessageReceived(remoteMessage);
-		
+
 		String sented = remoteMessage.getData().get("sented");
 		String user = remoteMessage.getData().get("user");
 
@@ -33,7 +33,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 
 		FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-		if (firebaseUser != null && sented.equals(firebaseUser.getUid() ==null)){
+		if (firebaseUser != null && sented.equals(firebaseUser.getUid() == null)) {
 			if (!currentUser.equals(user)) {
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 					sendOreoNotification(remoteMessage);
@@ -67,16 +67,16 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 				.setAutoCancel(true)
 				.setSound(defaultSound)
 				.setContentIntent(pendingIntent);
-		NotificationManager noti = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+		NotificationManager noti = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
 		int i = 0;
-		if (j > 0){
+		if (j > 0) {
 			i = j;
 		}
 
 		noti.notify(i, builder.build());
 	}
-	
+
 
 	@RequiresApi(api = Build.VERSION_CODES.O)
 	private void sendOreoNotification(RemoteMessage remoteMessage) {
@@ -100,7 +100,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 				defaultSound, icon);
 
 		int i = 0;
-		if (j > 0){
+		if (j > 0) {
 			i = j;
 		}
 

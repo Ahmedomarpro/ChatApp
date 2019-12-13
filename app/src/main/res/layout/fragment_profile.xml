@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:text="Profile"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="100dp"
@@ -26,7 +26,7 @@
                 android:id="@+id/profile_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:src="@drawable/ic_icons_user"/>
+                android:src="@drawable/ic_icons_user" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,10 +39,9 @@
                 android:textStyle="bold"
                 android:id="@+id/username"
                 android:textSize="18sp"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp" />
 
         </RelativeLayout>
-
 
 
     </androidx.cardview.widget.CardView>

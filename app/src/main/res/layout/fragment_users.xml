@@ -6,12 +6,12 @@
     tools:context="com.ao.home.fragments.UsersFragment">
 
 
- <EditText
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:hint="Search..."
-        android:id="@+id/search_users"/>
+        android:id="@+id/search_users" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@id/search_users"

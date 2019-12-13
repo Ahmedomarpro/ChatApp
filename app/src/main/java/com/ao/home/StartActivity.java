@@ -7,16 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.ao.pushnotification.R;
-import com.google.firebase.auth.FirebaseAuth;
+import com.ao.chatApp.R;
+ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class StartActivity extends AppCompatActivity {
 
 	Button login, register;
 	FirebaseUser firebaseUser;
-
-
 
 
 	@Override
@@ -39,7 +37,7 @@ public class StartActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View v) {
 
-				startActivity(new Intent (StartActivity.this,LoginActivity.class));
+				startActivity(new Intent(StartActivity.this, LoginActivity.class));
 
 			}
 		});
@@ -47,7 +45,7 @@ public class StartActivity extends AppCompatActivity {
 		register.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent (StartActivity.this,RegisterActivity.class));
+				startActivity(new Intent(StartActivity.this, RegisterActivity.class));
 
 			}
 		});
@@ -58,8 +56,8 @@ public class StartActivity extends AppCompatActivity {
 		super.onStart();
 		firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 		//User check in Account - is user in Null
-		if (firebaseUser != null){
-			startActivity(new Intent (StartActivity.this,MainActivity.class));
+		if (firebaseUser != null) {
+			startActivity(new Intent(StartActivity.this, MainActivity.class));
 			finish();
 		}
 	}

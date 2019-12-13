@@ -7,7 +7,7 @@ public class Sender {
 	public Sender(Data data, String to) {
 		this.data = data;
 		this.to = to;
-	}           
+	}
 
 	public Sender() {
 	}

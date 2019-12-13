@@ -9,6 +9,7 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/bar_layout" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,16 +24,16 @@
             android:layout_height="wrap_content"
             android:text="Login account"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
-         <com.rengwuxian.materialedittext.MaterialEditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/email"
             android:inputType="textEmailAddress"
             android:layout_marginTop="10dp"
             app:met_floatingLabel="normal"
-            android:hint="Email"/>
+            android:hint="Email" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
             android:inputType="textPassword"
             android:layout_marginTop="10dp"
             app:met_floatingLabel="normal"
-            android:hint="Password"/>
+            android:hint="Password" />
 
         <Button
             android:layout_width="match_parent"
@@ -50,7 +51,7 @@
             android:id="@+id/btn_login"
             android:background="@color/colorPrimaryDark"
             android:layout_marginTop="10dp"
-            android:textColor="#fff"/>
+            android:textColor="#fff" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,11 +62,10 @@
             android:layout_gravity="end"
             android:textStyle="bold"
             android:id="@+id/forgot_password"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark" />
 
 
     </LinearLayout>
-
 
 
 </RelativeLayout>

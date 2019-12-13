@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ao.chatApp.R;
 import com.ao.home.Notifications.Client;
 import com.ao.home.Notifications.Data;
 import com.ao.home.Notifications.MyResponse;
@@ -25,8 +26,7 @@ import com.ao.home.adapter.MessageAdapter;
 import com.ao.home.fragments.APIService;
 import com.ao.home.model.Chat;
 import com.ao.home.model.User;
-import com.ao.pushnotification.R;
-import com.bumptech.glide.Glide;
+ import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -127,7 +127,7 @@ public class MessageActivity extends AppCompatActivity {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 				User user = dataSnapshot.getValue(User.class);
- 				username.setText(user.getUsername());
+				username.setText(user.getUsername());
 				if (user.getImageURL().equals("default")) {
 					profile_image.setImageResource(R.drawable.ic_perm_identity_black);
 				} else {
@@ -147,7 +147,6 @@ public class MessageActivity extends AppCompatActivity {
 		seenMessage(userid);
 
 	}
-
 
 
 	private void seenMessage(final String userid) {
@@ -289,7 +288,7 @@ public class MessageActivity extends AppCompatActivity {
 						mchat.add(chat);
 					}
 					MessageAdapter messageAdapter =
-					new  MessageAdapter(MessageActivity.this,mchat,imageurl);
+							new MessageAdapter(MessageActivity.this, mchat, imageurl);
 					recyclerView.setAdapter(messageAdapter);
 				}
 
@@ -304,7 +303,7 @@ public class MessageActivity extends AppCompatActivity {
 
 	}
 
-	private void currentUser(String userid){
+	private void currentUser(String userid) {
 		SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
 		editor.putString("currentuser", userid);
 		editor.apply();

@@ -11,7 +11,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-class OreoNotification extends ContextWrapper{
+class OreoNotification extends ContextWrapper {
 	private static final String CHANNEL_ID = "com.ao.home";
 	private static final String CHANNEL_NAME = "chatapp";
 	private NotificationManager notificationManager;
@@ -19,7 +19,7 @@ class OreoNotification extends ContextWrapper{
 
 	public OreoNotification(Context base) {
 		super(base);
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			createChannel();
 		}
 	}
@@ -38,15 +38,16 @@ class OreoNotification extends ContextWrapper{
 	}
 
 	NotificationManager getManager() {
-		if (notificationManager == null){
-			notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+		if (notificationManager == null) {
+			notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		}
 
-		return  notificationManager;
+		return notificationManager;
 	}
+
 	@RequiresApi(api = Build.VERSION_CODES.O)
-	public  Notification.Builder getOreoNotification(String title, String body,
-													 PendingIntent pendingIntent, Uri soundUri, String icon){
+	public Notification.Builder getOreoNotification(String title, String body,
+													PendingIntent pendingIntent, Uri soundUri, String icon) {
 		return new Notification.Builder(getApplicationContext(), CHANNEL_ID)
 				.setContentIntent(pendingIntent)
 				.setContentTitle(title)

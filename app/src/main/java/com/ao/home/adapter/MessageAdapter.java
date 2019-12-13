@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ao.chatApp.R;
 import com.ao.home.MessageActivity;
 import com.ao.home.model.Chat;
 import com.ao.home.model.User;
-import com.ao.pushnotification.R;
-import com.bumptech.glide.Glide;
+ import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -23,9 +23,9 @@ import java.util.List;
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
 
 	private static final String TAG = MessageAdapter.class.getSimpleName();
-	
-	public static  final int MSG_TYPE_LEFT = 0;
-	public static  final int MSG_TYPE_RIGHT = 1;
+
+	public static final int MSG_TYPE_LEFT = 0;
+	public static final int MSG_TYPE_RIGHT = 1;
 
 	Context mcontext;
 	protected List<Chat> list;
@@ -39,15 +39,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 		this.imageurl = imageurl;
 	}
 
-	 
+
 	@Override
 	public MessageAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-		if ( viewType == MSG_TYPE_RIGHT) {
+		if (viewType == MSG_TYPE_RIGHT) {
 			View view = LayoutInflater.from(mcontext)
 					.inflate(R.layout.chat_item_right, parent, false);
 
 			return new MessageAdapter.ViewHolder(view);
-		}else {
+		} else {
 			View view = LayoutInflater.from(mcontext)
 					.inflate(R.layout.chat_item_left, parent, false);
 
@@ -62,20 +62,20 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 	public void onBindViewHolder(ViewHolder holder, int position) {
 		final Chat chat = list.get(position);
 		holder.show_message.setText(chat.getMessage());
-		 if (imageurl.equals("default")){
-		 	holder.profile_image.setImageResource(R.drawable.ic_action_name);
-		 }else {
-			 Glide.with(mcontext).load(imageurl).into(holder.profile_image);
-		 }
-		 if (position == list.size()-1){
-		 	if (chat.isIsseen()){
-		 		holder.txt_seen.setText("Seen");
-			}else {
+		if (imageurl.equals("default")) {
+			holder.profile_image.setImageResource(R.drawable.ic_action_name);
+		} else {
+			Glide.with(mcontext).load(imageurl).into(holder.profile_image);
+		}
+		if (position == list.size() - 1) {
+			if (chat.isIsseen()) {
+				holder.txt_seen.setText("Seen");
+			} else {
 				holder.txt_seen.setText("Delivered");
 			}
-		 }else {
-			 holder.txt_seen.setVisibility(View.GONE);
-		 }
+		} else {
+			holder.txt_seen.setVisibility(View.GONE);
+		}
 
 	}
 
@@ -85,8 +85,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 		return list == null ? 0 : list.size();
 
 	}
-
-	 
 
 
 	public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -101,14 +99,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 			profile_image = itemView.findViewById(R.id.profile_image);
 			txt_seen = itemView.findViewById(R.id.txt_seen);
 
- 	}
+		}
 	}
+
 	@Override
 	public int getItemViewType(int position) {
 		fuser = FirebaseAuth.getInstance().getCurrentUser();
 		if (list.get(position).getSender().equals(fuser.getUid())) {
 			return MSG_TYPE_RIGHT;
-		}else {
+		} else {
 			return MSG_TYPE_LEFT;
 		}
 	}

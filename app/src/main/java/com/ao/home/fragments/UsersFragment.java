@@ -17,10 +17,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.ao.chatApp.R;
 import com.ao.home.adapter.UserAdapter;
 import com.ao.home.model.User;
-import com.ao.pushnotification.R;
-import com.google.firebase.auth.FirebaseAuth;
+ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -95,11 +95,11 @@ public class UsersFragment extends Fragment {
 					mUsers.clear();
 					for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
 						User user = Snapshot.getValue(User.class);
-						//TODO Error If
+						//TODO Error If Finish
 
 						assert user != null;
 						assert firUser != null;
-						if (user!=null && user.getId() != null && !user.getId().equals(firUser.getUid())) {
+						if (user != null && user.getId() != null && !user.getId().equals(firUser.getUid())) {
 							mUsers.add(user);
 							Toast.makeText(getActivity(), "User New '", Toast.LENGTH_SHORT).show();
 						}
@@ -108,7 +108,7 @@ public class UsersFragment extends Fragment {
 					/// 1
 					userAdapter = new UserAdapter(getContext(), mUsers, false);
 					recyclerView.setAdapter(userAdapter);
-				}      else {
+				} else {
 					Toast.makeText(getActivity(), "Eroor'2'", Toast.LENGTH_SHORT).show();
 				}
 			}
@@ -118,7 +118,6 @@ public class UsersFragment extends Fragment {
 
 			}
 		});
-
 
 
 	}

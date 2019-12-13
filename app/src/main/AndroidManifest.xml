@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ao.pushnotification">
+    package="com.ao.chatApp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -15,10 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.ao.home.ResetPasswordActivity"
-            android:parentActivityName="com.ao.home.LoginActivity"
-            />
-        <activity android:name="com.ao.home.MessageActivity"
+        <activity
+            android:name="com.ao.home.ResetPasswordActivity"
+            android:parentActivityName="com.ao.home.LoginActivity" />
+        <activity
+            android:name="com.ao.home.MessageActivity"
             android:parentActivityName="com.ao.home.MainActivity"
 
             />
@@ -38,19 +39,21 @@
         </activity>
 
 
-        <service android:name="com.ao.home.Notifications.MyFirebaseIdService"
+        <service
+            android:name="com.ao.home.Notifications.MyFirebaseIdService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <service android:name="com.ao.home.Notifications.MyFirebaseMessaging"
+        <service
+            android:name="com.ao.home.Notifications.MyFirebaseMessaging"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 

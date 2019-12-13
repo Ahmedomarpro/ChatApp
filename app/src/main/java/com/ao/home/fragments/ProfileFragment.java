@@ -18,9 +18,9 @@ import android.webkit.MimeTypeMap;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ao.chatApp.R;
 import com.ao.home.model.User;
-import com.ao.pushnotification.R;
-import com.bumptech.glide.Glide;
+ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -181,7 +181,7 @@ public class ProfileFragment extends Fragment {
 			imageUri = data.getData();
 
 			if (uploadTask != null && uploadTask.isInProgress()) {
-		Toast.makeText(getContext(), "Upload in preogress", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getContext(), "Upload in preogress", Toast.LENGTH_SHORT).show();
 			} else {
 				uploadImage();
 			}
